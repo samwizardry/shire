@@ -1,15 +1,13 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins/breakpoints' as *;
 @use '../abstracts/mixins/container' as *;
 
-$enable-container-classes: true;
-
-
 @if $enable-container-classes {
-
     // Single container class with breakpoint max-widths
     .container,
     // 100% wide container at all breakpoints
     .container-fluid {
-        @include make-container(12px);
+        @include make-container($container-padding-x);
     }
 
     // Responsive containers that are 100% wide until a breakpoint
