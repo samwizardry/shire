@@ -1,3 +1,5 @@
+@use './functions' as *;
+
 // Variables
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
@@ -26,6 +28,9 @@ $grid-breakpoints: (
   xxl: 1400px
 ) !default;
 
+@include assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
 
 // Grid containers
 // Define the maximum width of `.container` for different screen sizes.
@@ -36,6 +41,8 @@ $container-max-widths: (
   xl: 1140px,
   xxl: 1320px
 ) !default;
+
+@include assert-ascending($container-max-widths, "$container-max-widths");
 
 
 // Grid columns
