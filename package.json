@@ -4,9 +4,9 @@
   "description": "frontend template",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ildartagiev/shire.git"
+    "url": "https://github.com/samwizardry/shire"
   },
-  "author": "",
+  "author": "samwizardry",
   "license": "ISC",
   "scripts": {
     "build": "npm run css",
