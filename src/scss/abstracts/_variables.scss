@@ -1,9 +1,8 @@
-@use './functions' as *;
+@use "./functions" as *;
 
 // Variables
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
-
 
 // Options
 // Quickly modify global styling by enabling or disabling optional features.
@@ -14,7 +13,6 @@ $color-mode-type: data !default; // `data` or `media-query`
 
 // Prefix for :root CSS variables
 $prefix: null !default;
-
 
 // Grid breakpoints
 // Define the minimum dimensions at which your layout will change,
@@ -31,7 +29,6 @@ $grid-breakpoints: (
 @include assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
-
 // Grid containers
 // Define the maximum width of `.container` for different screen sizes.
 $container-max-widths: (
@@ -44,11 +41,10 @@ $container-max-widths: (
 
 @include assert-ascending($container-max-widths, "$container-max-widths");
 
-
 // Grid columns
 // Set the number of columns and specify the width of the gutters.
-$grid-columns:                12 !default;
-$grid-gutter-width:           1.5rem !default;
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
 
 // Container padding
 $container-padding-x: $grid-gutter-width !default;

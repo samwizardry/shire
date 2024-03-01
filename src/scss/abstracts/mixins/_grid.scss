@@ -1,4 +1,4 @@
-@use './breakpoints' as *;
+@use "./breakpoints" as *;
 
 @mixin make-grid($columns: $grid-columns, $breakpoints: $grid-breakpoints) {
     @each $breakpoint in map-keys($breakpoints) {
