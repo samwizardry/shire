@@ -1,0 +1,77 @@
+@use "../abstracts/functions" as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins/color-mode" as *;
+
+:root,
+[data-theme="light"] {
+    // Note: Custom variable values only support SassScript inside `#{}`.
+
+    // Colors
+    // Generate palettes for full colors, grays, and theme colors.
+
+    @each $color, $value in $grays {
+        --#{$prefix}gray-#{$color}: #{$value};
+    }
+
+    @each $color, $value in $colors {
+        --#{$prefix}#{$color}: #{$value};
+    }
+
+    --#{$prefix}white-rgb: #{to-rgb($white)};
+    --#{$prefix}black-rgb: #{to-rgb($black)};
+
+    // Fonts
+    // Note: Use `inspect` for lists so that quoted items keep the quotes.
+    // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
+    --#{$prefix}font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
+        "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --#{$prefix}font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --#{$prefix}gradient: #{$gradient};
+
+    --#{$prefix}font-size-300: 0.875rem;
+    --#{$prefix}font-size-500: 1rem;
+    --#{$prefix}font-size-700: 1.25rem;
+
+    --#{$prefix}font-size-base: var(--#{$prefix}font-size-500);
+
+    --#{$prefix}font-weight-100: lighter;
+    --#{$prefix}font-weight-300: 300;
+    --#{$prefix}font-weight-400: 400;
+    --#{$prefix}font-weight-500: 500;
+    --#{$prefix}font-weight-600: 500;
+    --#{$prefix}font-weight-700: 700;
+    --#{$prefix}font-weight-900: bolder;
+
+    --#{$prefix}font-weight-base: var(--#{$prefix}font-weight-500);
+
+    --#{$prefix}line-height-300: 1.25;
+    --#{$prefix}line-height-500: 1.5;
+    --#{$prefix}line-height-700: 2;
+
+    --#{$prefix}line-height-base: var(--#{$prefix}line-height-500);
+
+    // Root
+    @if $font-size-root != null {
+        --#{$prefix}root-font-size: #{$font-size-root};
+    }
+
+    // Body
+    --#{$prefix}body-font-family: var(--#{$prefix}font-sans-serif);
+    --#{$prefix}body-font-size: var(--#{$prefix}font-size-base);
+    --#{$prefix}body-font-weight: var(--#{$prefix}font-weight-base);
+    --#{$prefix}body-line-height: var(--#{$prefix}line-height-base);
+    @if $body-text-align != null {
+        --#{$prefix}body-text-align: #{$body-text-align};
+    }
+    --#{$prefix}body-color: #{$body-color};
+    --#{$prefix}body-color-rgb: #{to-rgb($body-color)};
+    --#{$prefix}body-bg: #{$body-bg};
+    --#{$prefix}body-bg-rgb: #{to-rgb($body-bg)};
+}
+
+@if $enable-dark-mode {
+    @include color-mode(dark, true) {
+        color-scheme: dark;
+    }
+}
